@@ -14,19 +14,16 @@ Pipeline:
 CoinGecko API -> Producer -> KAfka -> Consumer -> MySQL
 
 Features:
-- Fetches real-time crypto prices (Bitcoin, Ethereum)
-- Streams data using Kafka
-- Stores data in MySQL
-- Handles API rate limiting
+- Real-time crypto data ingestion using Kafka
+- Data storage in MySQL (Dockerized)
+- Interactive dashboard using Streamlit
+- Live price visualization
 
 How to Run:
 
-1 Start services
-   docker compose up -d
-
-2 Run consumner
-    python3 app/consumer.py
-
-3 Run producer
-   python3 app/producer.py 
+```bash
+docker-compose up -d
+python app/producer.py
+python app/consumer.py
+streamlit run dashboard/dashboard.py
 
